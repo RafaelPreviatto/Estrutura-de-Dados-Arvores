@@ -113,5 +113,50 @@ public class Arvore {
         }
     }
 
+    public void emNivelInterativo(No node) {
+        if (node == null) return;
 
+        Queue<No> fila = new LinkedList<>();
+        fila.add(node);
+
+        while (!fila.isEmpty()) {
+            No atual = fila.poll();
+            System.out.println(atual.valor + "  ");
+
+            if (atual.esquerda != null) {
+                fila.add(atual.esquerda);
+            }
+            if (atual.direita != null) {
+                fila.add(atual.direita);
+            }
+        }
+    }
+
+    public int contarNosFolha(No node) {
+        if (node == null) {
+            return 0;
+        }
+
+        if (node.esquerda == null && node.direita == null) {
+            return 1;
+        }
+
+        return contarNosFolha(node.esquerda) + contarNosFolha(node.direita);
+    }
+
+    int contarNosFolhaInterativo(No raiz){
+        if(raiz == null) return 0;
+        Queue<No> fila = new LinkedList<>();
+        fila.add(raiz);
+        int folhas = 0;
+        while(!fila.isEmpty()) {
+            No atual = fila.poll();
+            if(atual.esquerda == null && atual.direita == null) {
+                folhas++;
+            }
+            if(atual.esquerda != null) fila.add(atual.esquerda);
+            if(atual.esquerda != null) fila.add(atual.esquerda);
+        }
+        return folhas;
+    }
 }
