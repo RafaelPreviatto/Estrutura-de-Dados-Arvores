@@ -2,21 +2,10 @@ public class No {
 
     String valor;
     No esquerda, direita;
-    int altura;
-    int fatorBalanceamento;
+    int altura, chave;
 
-    public No(String valor) {
-        this.valor = valor;
-        esquerda = direita = null;
+    No (int valor){
+        chave = valor;
         altura = 1;
-        fatorBalanceamento = 0;
-    }
-
-    public void atualizarAlturaEFator() {
-        int alturaEsquerda = (esquerda != null) ? esquerda.altura : 0;
-        int alturaDireita = (direita != null) ? direita.altura : 0;
-
-        altura = 1 + Math.max(alturaEsquerda, alturaDireita);
-        fatorBalanceamento = alturaEsquerda - alturaDireita;
     }
 }
